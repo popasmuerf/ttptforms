@@ -19,3 +19,31 @@
 </ul>
 
 <router-outlet></router-outlet>
+
+----------------------------------------------------
+<div>
+  <h3>Angular  Template Form validation </h3>
+  <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" novalidate >
+    <p>Is "userlogin" valid? {{userlogin.valid}}</p>
+    <input type = "text" name = "emailId" placeholder = "emailId" ngModel  required pattern = "\w+\@\w+\.\w+" />
+    <br/>
+    <input type = "password" name = "passwd" placeholder = "passwd" ngModel required pattern ="\w{10}"/>
+    <br/>
+    <input type = "submit"  [disabled] = "!userlogin.valid"  value = "submit">
+ </form>
+</div>
+----------------------------------------------------
+
+
+<div>
+  <h3>Angular  Module Form validation </h3>
+  <form [formGroup] = "policyFormData" (ngSubmit) = "onClickSubmit1(policyFormData.value)" novalidate >
+    <p>Is "policyForm " valid? {{policyFormData.valid}}</p>
+    <input type = "text" name = "companyCd" formControlName = "companyCd" placeholder = "companyCd"  />
+    <br/>
+    <input type = "text" name = "policyNo" formControlName = "policyNo" placeholder = "policyNo" />
+    <br/>
+    <input type = "submit" [disabled] = "!policyFormData.valid" value = "submit1">
+ </form>
+</div>
+----------------------------------------------------
